@@ -29,6 +29,7 @@ dependencies:
   firebase_analytics:
   curved_navigation_bar: 
   qr_flutter: 
+  flutter_barcode_scanner:
 
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.

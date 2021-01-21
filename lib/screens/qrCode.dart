@@ -8,6 +8,7 @@ class QRScreen extends StatefulWidget {
 }
 
 class _QRScreenState extends State<QRScreen> {
+  // stores the scanned string | must do something with string for functionality
   String _scanBarcode = 'Unknown';
 
   @override
@@ -19,7 +20,7 @@ class _QRScreenState extends State<QRScreen> {
     String barcodeScanRes;
 
     barcodeScanRes = await FlutterBarcodeScanner.scanBarcode(
-        "#ff6666", "Cancel", true, ScanMode.QR);
+        "#ff6666", "Cancel", false, ScanMode.QR);
     print(barcodeScanRes);
 
     if (!mounted) return;
