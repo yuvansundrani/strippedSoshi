@@ -46,36 +46,6 @@ class _MyAppState extends State<MyApp> {
                 Icon(Icons.person, color: Colors.yellow[500]),
                 Icon(Icons.group, color: Colors.yellow[500]),
               ]),
-          // appBar: AppBar(
-          //   backgroundColor: Colors.white,
-          // ),
-          drawer: ListView(
-            // Important: Remove any padding from the ListView.
-            padding: EdgeInsets.zero,
-            children: <Widget>[
-              DrawerHeader(
-                child: Text('Drawer Header'),
-                decoration: BoxDecoration(
-                  color: Colors.blue,
-                ),
-              ),
-              ListTile(
-                title: Text('Item 1'),
-                onTap: () {
-                  Navigator.pop(context);
-                  // Update the state of the app.
-                  // ...
-                },
-              ),
-              ListTile(
-                title: Text('Item 2'),
-                onTap: () {
-                  // Update the state of the app.
-                  // ...
-                },
-              ),
-            ],
-          ),
         ));
   }
 }
