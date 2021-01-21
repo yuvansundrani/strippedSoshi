@@ -28,6 +28,7 @@ class _MyAppState extends State<MyApp> {
         home: Scaffold(
           appBar: AppBar(
             title: Text("Soshi", style: customYellow),
+            backgroundColor: Colors.grey[850],
             centerTitle: true,
           ),
           backgroundColor: Colors.grey[900],

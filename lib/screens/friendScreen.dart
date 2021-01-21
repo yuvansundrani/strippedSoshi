@@ -16,7 +16,7 @@ class FriendScreenState extends State<FriendScreen> {
         Center(
             child: Text(
           "Connections",
-          style: TextStyle(color: Colors.yellow),
+          style: customYellow,
         )),
         Expanded(
           child: ListView.builder(

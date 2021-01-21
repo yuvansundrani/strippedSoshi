@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:qr_flutter/qr_flutter.dart';
+import 'package:flutter_barcode_scanner/flutter_barcode_scanner.dart';
 
 class QRScreen extends StatefulWidget {
   @override
@@ -7,6 +8,27 @@ class QRScreen extends StatefulWidget {
 }
 
 class _QRScreenState extends State<QRScreen> {
+  String _scanBarcode = 'Unknown';
+
+  @override
+  void initState() {
+    super.initState();
+  }
+
+  Future<void> scanQR() async {
+    String barcodeScanRes;
+
+    barcodeScanRes = await FlutterBarcodeScanner.scanBarcode(
+        "#ff6666", "Cancel", true, ScanMode.QR);
+    print(barcodeScanRes);
+
+    if (!mounted) return;
+
+    setState(() {
+      _scanBarcode = barcodeScanRes;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -23,7 +45,7 @@ class _QRScreenState extends State<QRScreen> {
             ),
             RaisedButton(
               child: Text("Scan QR Code"),
-              onPressed: () {},
+              onPressed: () => scanQR(),
               splashColor: Colors.yellow[500],
             )
           ]),
