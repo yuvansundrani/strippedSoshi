@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:qr_flutter/qr_flutter.dart';
 
 class QRScreen extends StatefulWidget {
   @override
@@ -14,7 +15,12 @@ class _QRScreenState extends State<QRScreen> {
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            Icon(Icons.qr_code, size: 150.0, color: Colors.yellow[600]),
+            QrImage(
+              data: "Soshi",
+              size: 400.0,
+              padding: EdgeInsets.all(50.0),
+              foregroundColor: Colors.yellow,
+            ),
             RaisedButton(
               child: Text("Scan QR Code"),
               onPressed: () {},

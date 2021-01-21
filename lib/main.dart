@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
-import 'package:my_first_app/profileSettings.dart';
+import 'package:my_first_app/screens/profileSettings.dart';
 
-import 'qrcode.dart';
-import 'friendscreen.dart';
-import 'profileSettings.dart';
+import 'screens/friendScreen.dart';
+import 'screens/qrCode.dart';
+import 'screens/profileSettings.dart';
+import 'package:my_first_app/styles/textStyles.dart';
 
 class MyApp extends StatefulWidget {
   @override
@@ -25,6 +26,7 @@ class _MyAppState extends State<MyApp> {
           accentColor: Colors.black,
         ),
         home: Scaffold(
+          appBar: AppBar(title: Text("Soshi", style: customYellow)),
           backgroundColor: Colors.grey[900],
           body: screens[currScreen],
           bottomNavigationBar: CurvedNavigationBar(

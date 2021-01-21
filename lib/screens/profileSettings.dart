@@ -1,7 +1,4 @@
 import 'package:flutter/material.dart';
-// import 'package:my_first_app/search.dart';
-// import 'profileSettings.dart';
-// import 'main.dart';
 
 class MyProfileScreen extends StatefulWidget {
   @override
