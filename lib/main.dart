@@ -26,7 +26,10 @@ class _MyAppState extends State<MyApp> {
           accentColor: Colors.black,
         ),
         home: Scaffold(
-          appBar: AppBar(title: Text("Soshi", style: customYellow)),
+          appBar: AppBar(
+            title: Text("Soshi", style: customYellow),
+            centerTitle: true,
+          ),
           backgroundColor: Colors.grey[900],
           body: screens[currScreen],
           bottomNavigationBar: CurvedNavigationBar(
