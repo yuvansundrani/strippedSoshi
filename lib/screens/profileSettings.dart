@@ -64,7 +64,7 @@ class MyProfileScreenState extends State<MyProfileScreen> {
                     letterSpacing: 2,
                   ),
                 ),
-                SizedBox(width: 176),
+                SizedBox(width: 146),
                 RaisedButton(
                     color: Colors.grey[850],
                     onPressed: () {
