@@ -19,7 +19,7 @@ class _QRScreenState extends State<QRScreen> {
     String barcodeScanRes;
 
     barcodeScanRes = await FlutterBarcodeScanner.scanBarcode(
-        "#ff6666", "Cancel", true, ScanMode.QR);
+        "#ff6666", "Cancel", false, ScanMode.QR);
     print(barcodeScanRes);
 
     if (!mounted) return;
