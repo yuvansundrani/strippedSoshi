@@ -1,4 +1,8 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:qr_flutter/qr_flutter.dart';
 import 'package:flutter_barcode_scanner/flutter_barcode_scanner.dart';
 
@@ -16,18 +20,25 @@ class _QRScreenState extends State<QRScreen> {
     super.initState();
   }
 
-  Future<void> scanQR() async {
-    String barcodeScanRes;
+  Future<String> scanQR() async {
+    String barcodeScanResult;
 
-    barcodeScanRes = await FlutterBarcodeScanner.scanBarcode(
+    barcodeScanResult = await FlutterBarcodeScanner.scanBarcode(
         "#ff6666", "Cancel", false, ScanMode.QR);
-    print(barcodeScanRes);
+    print(barcodeScanResult);
 
-    if (!mounted) return;
+    if (!mounted) return "";
 
     setState(() {
-      _scanBarcode = barcodeScanRes;
+      _scanBarcode = barcodeScanResult;
     });
+    return barcodeScanResult;
+  }
+
+  void displayUser({String UID}) {
+    // display a snackbar to show user data
+    final snackBar = SnackBar(content: Text('$UID'));
+    Scaffold.of(context).showSnackBar(snackBar);
   }
 
   @override
@@ -39,14 +50,21 @@ class _QRScreenState extends State<QRScreen> {
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             QrImage(
-              data: "Soshi",
+              data: Provider.of<User>(context).uid.toString(),
               size: 400.0,
               padding: EdgeInsets.all(50.0),
               foregroundColor: Colors.yellow,
             ),
             RaisedButton(
               child: Text("Scan QR Code"),
-              onPressed: () => scanQR(),
+              onPressed: () async {
+                String QRScanResult = await scanQR();
+                try {
+                  displayUser(UID: QRScanResult);
+                } catch (e) {
+                  print("User not found. Please try again.");
+                }
+              },
               splashColor: Colors.yellow[500],
             )
           ]),
