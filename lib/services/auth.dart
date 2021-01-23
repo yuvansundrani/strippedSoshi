@@ -1,5 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:google_sign_in/google_sign_in.dart';
+import 'package:my_first_app/services/database.dart';
 
 class AuthService {
   final FirebaseAuth _auth = FirebaseAuth.instance;
@@ -8,20 +9,7 @@ class AuthService {
     return _auth.authStateChanges();
   }
 
-  // sign in anonymously (REMOVE AND DISABLE ON DEPLOY)
-  Future signInAnon() async {
-    try {
-      UserCredential loginResult = await _auth.signInAnonymously();
-      User user = loginResult.user;
-      return user;
-    } catch (e) {
-      print(e.toString());
-      return null;
-    }
-  }
-
-  Future signInWithUsernameAndPassword(
-      {String emailIn, String passwordIn}) async {
+  Future signInWithEmailAndPassword({String emailIn, String passwordIn}) async {
     try {
       UserCredential loginResult = await _auth.signInWithEmailAndPassword(
           email: emailIn, password: passwordIn);
@@ -42,5 +30,21 @@ class AuthService {
     //     print(e.toString());
     //     return null;
     //   }
+  }
+
+  Future signInWithFacebook() async {}
+
+  Future registerWithEmailAndPassword(
+      {String emailIn, String passwordIn}) async {
+    try {
+      UserCredential registerResult = await _auth
+          .createUserWithEmailAndPassword(email: emailIn, password: passwordIn);
+      User user = registerResult.user;
+      await DataBaseService(UIDIn: user.uid).updateUserData(username: "null");
+      return user;
+    } catch (e) {
+      print(e.toString());
+      return null;
+    }
   }
 }

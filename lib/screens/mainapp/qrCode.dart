@@ -35,9 +35,13 @@ class _QRScreenState extends State<QRScreen> {
     return barcodeScanResult;
   }
 
-  void displayUser({String UID}) {
+  Future<void> displayUser({String UID}) async {
+    FirebaseFirestore firestore = FirebaseFirestore.instance;
+
+    String userdata = firestore.collection("users").doc(UID).get().toString();
+
     // display a snackbar to show user data
-    final snackBar = SnackBar(content: Text('$UID'));
+    final snackBar = SnackBar(content: Text('$userdata'));
     Scaffold.of(context).showSnackBar(snackBar);
   }
 
@@ -50,7 +54,7 @@ class _QRScreenState extends State<QRScreen> {
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             QrImage(
-              data: Provider.of<User>(context).uid.toString(),
+              data: Provider.of<User>(context).uid,
               size: 400.0,
               padding: EdgeInsets.all(50.0),
               foregroundColor: Colors.yellow,
