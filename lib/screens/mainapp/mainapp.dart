@@ -3,7 +3,7 @@ import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:my_first_app/screens/mainapp/profileSettings.dart';
 import 'package:my_first_app/screens/mainapp/qrCode.dart';
 import 'friendScreen.dart';
-import 'package:my_first_app/styles/textStyles.dart';
+import 'package:my_first_app/styles/styles.dart';
 
 class MainApp extends StatefulWidget {
   @override
@@ -20,7 +20,7 @@ class _MainAppState extends State<MainApp> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Soshi", style: customYellow),
+        title: Text("Soshi", style: CustomYellow),
         backgroundColor: Colors.grey[850],
         centerTitle: true,
       ),

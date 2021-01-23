@@ -13,7 +13,7 @@ class _LoginScreenState extends State<LoginScreen> {
   bool _rememberMe = false;
   final AuthService _authService = AuthService();
 
-  TextEditingController emailController = TextEditingController();
+  TextEditingController _emailController = TextEditingController();
   Widget _buildEmailTF() {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
@@ -28,7 +28,7 @@ class _LoginScreenState extends State<LoginScreen> {
           decoration: kBoxDecorationStyle,
           height: 60.0,
           child: TextField(
-            controller: emailController,
+            controller: _emailController,
             keyboardType: TextInputType.emailAddress,
             style: TextStyle(
               color: Colors.white,
@@ -50,7 +50,7 @@ class _LoginScreenState extends State<LoginScreen> {
     );
   }
 
-  TextEditingController passwordController = TextEditingController();
+  TextEditingController _passwordController = TextEditingController();
   Widget _buildPasswordTF() {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
@@ -65,7 +65,7 @@ class _LoginScreenState extends State<LoginScreen> {
           decoration: kBoxDecorationStyle,
           height: 60.0,
           child: TextField(
-            controller: passwordController,
+            controller: _passwordController,
             obscureText: true,
             style: TextStyle(
               color: Colors.white,
@@ -134,11 +134,11 @@ class _LoginScreenState extends State<LoginScreen> {
       width: double.infinity,
       child: RaisedButton(
         elevation: 5.0,
-        onPressed: () {
+        onPressed: () async {
           print('Login Button Pressed');
-          _authService.signInWithUsernameAndPassword(
-              emailIn: emailController.text,
-              passwordIn: passwordController.text);
+          User loginResult = await _authService.signInWithUsernameAndPassword(
+              emailIn: _emailController.text,
+              passwordIn: _passwordController.text);
         },
         padding: EdgeInsets.all(15.0),
         shape: RoundedRectangleBorder(
@@ -215,9 +215,9 @@ class _LoginScreenState extends State<LoginScreen> {
             ),
           ),
           _buildSocialBtn(
-            () {
+            () async {
               print('Login with Google');
-              _authService.signInWithGoogle();
+              await _authService.signInWithGoogle();
             },
             AssetImage(
               'assets/images/SMLogos/GoogleLogo.png',
@@ -273,10 +273,10 @@ class _LoginScreenState extends State<LoginScreen> {
                     begin: Alignment.topCenter,
                     end: Alignment.bottomCenter,
                     colors: [
-                      Color(0xFF73AEF5),
-                      Color(0xFF61A4F1),
-                      Color(0xFF478DE0),
-                      Color(0xFF398AE5),
+                      Color(0xFF61E2D7),
+                      Color(0xFF53DACE),
+                      Color(0xFF3DC2B7),
+                      Color(0xFF28B9AD),
                     ],
                     stops: [0.1, 0.4, 0.7, 0.9],
                   ),
@@ -340,8 +340,7 @@ class _RegisterEmailSectionState extends State<_RegisterEmailSection> {
   String _userEmail;
   @override
   Widget build(BuildContext context) {
-    body:
-    Form(
+    return Form(
       key: _formKey,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,

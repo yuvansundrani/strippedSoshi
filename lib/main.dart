@@ -1,7 +1,10 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:firebase_core/firebase_core.dart';
-
+import 'services/auth.dart';
 import 'package:my_first_app/screens/wrapper.dart';
+import 'styles/styles.dart';
 
 class MyApp extends StatefulWidget {
   @override
@@ -11,12 +14,9 @@ class MyApp extends StatefulWidget {
 class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-        theme: ThemeData(
-          primaryColor: Colors.black,
-          accentColor: Colors.black,
-        ),
-        home: Wrapper());
+    return StreamProvider<User>.value(
+        value: AuthService().user,
+        child: MaterialApp(theme: CustomTheme, home: Wrapper()));
   }
 }
 
