@@ -32,6 +32,24 @@
       "languageVersion": "2.10"
     },
     {
+      "name": "cloud_firestore",
+      "rootUri": "file:///C:/Users/hocke/Flutter/flutter/.pub-cache/hosted/pub.dartlang.org/cloud_firestore-0.16.0",
+      "packageUri": "lib/",
+      "languageVersion": "2.1"
+    },
+    {
+      "name": "cloud_firestore_platform_interface",
+      "rootUri": "file:///C:/Users/hocke/Flutter/flutter/.pub-cache/hosted/pub.dartlang.org/cloud_firestore_platform_interface-3.0.1",
+      "packageUri": "lib/",
+      "languageVersion": "2.0"
+    },
+    {
+      "name": "cloud_firestore_web",
+      "rootUri": "file:///C:/Users/hocke/Flutter/flutter/.pub-cache/hosted/pub.dartlang.org/cloud_firestore_web-0.3.0+1",
+      "packageUri": "lib/",
+      "languageVersion": "2.1"
+    },
+    {
       "name": "collection",
       "rootUri": "file:///C:/Users/hocke/Flutter/flutter/.pub-cache/hosted/pub.dartlang.org/collection-1.15.0-nullsafety.3",
       "packageUri": "lib/",
@@ -116,12 +134,6 @@
       "languageVersion": "2.1"
     },
     {
-      "name": "firebase_dynamic_links",
-      "rootUri": "file:///C:/Users/hocke/Flutter/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_dynamic_links-0.7.0+1",
-      "packageUri": "lib/",
-      "languageVersion": "2.0"
-    },
-    {
       "name": "flutter",
       "rootUri": "file:///C:/Users/hocke/Flutter/flutter/packages/flutter",
       "packageUri": "lib/",
@@ -150,6 +162,24 @@
       "rootUri": "file:///C:/Users/hocke/Flutter/flutter/packages/flutter_web_plugins",
       "packageUri": "lib/",
       "languageVersion": "2.0"
+    },
+    {
+      "name": "google_sign_in",
+      "rootUri": "file:///C:/Users/hocke/Flutter/flutter/.pub-cache/hosted/pub.dartlang.org/google_sign_in-4.5.9",
+      "packageUri": "lib/",
+      "languageVersion": "2.1"
+    },
+    {
+      "name": "google_sign_in_platform_interface",
+      "rootUri": "file:///C:/Users/hocke/Flutter/flutter/.pub-cache/hosted/pub.dartlang.org/google_sign_in_platform_interface-1.1.2",
+      "packageUri": "lib/",
+      "languageVersion": "2.1"
+    },
+    {
+      "name": "google_sign_in_web",
+      "rootUri": "file:///C:/Users/hocke/Flutter/flutter/.pub-cache/hosted/pub.dartlang.org/google_sign_in_web-0.9.2",
+      "packageUri": "lib/",
+      "languageVersion": "2.6"
     },
     {
       "name": "http",
@@ -284,7 +314,7 @@
       "languageVersion": "2.7"
     }
   ],
-  "generated": "2021-01-21T02:55:04.596355Z",
+  "generated": "2021-01-23T18:28:46.626177Z",
   "generator": "pub",
   "generatorVersion": "2.10.4"
 }

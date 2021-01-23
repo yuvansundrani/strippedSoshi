@@ -216,6 +216,10 @@
         "source": "C:\\Users\\hocke\\.gradle\\caches\\transforms-2\\files-2.1\\2551154c7d5ac78c1819adbdfd5480f4\\appcompat-1.1.0\\res\\color\\abc_primary_text_material_dark.xml"
     },
     {
+        "merged": "C:\\Users\\hocke\\Documents\\Coding Projects\\VS Code Projects\\strippedSoshi\\build\\app\\intermediates\\res\\merged\\debug\\drawable-watch-v20_common_google_signin_btn_text_light_normal.xml.flat",
+        "source": "C:\\Users\\hocke\\.gradle\\caches\\transforms-2\\files-2.1\\9ea2a7edc64d939399012121363e6725\\jetified-play-services-auth-16.0.1\\res\\drawable-watch-v20\\common_google_signin_btn_text_light_normal.xml"
+    },
+    {
         "merged": "C:\\Users\\hocke\\Documents\\Coding Projects\\VS Code Projects\\strippedSoshi\\build\\app\\intermediates\\res\\merged\\debug\\drawable-mdpi-v4_abc_list_pressed_holo_light.9.png.flat",
         "source": "C:\\Users\\hocke\\.gradle\\caches\\transforms-2\\files-2.1\\2551154c7d5ac78c1819adbdfd5480f4\\appcompat-1.1.0\\res\\drawable-mdpi-v4\\abc_list_pressed_holo_light.9.png"
     },
@@ -360,6 +364,10 @@
         "source": "C:\\Users\\hocke\\.gradle\\caches\\transforms-2\\files-2.1\\2551154c7d5ac78c1819adbdfd5480f4\\appcompat-1.1.0\\res\\layout\\abc_search_view.xml"
     },
     {
+        "merged": "C:\\Users\\hocke\\Documents\\Coding Projects\\VS Code Projects\\strippedSoshi\\build\\app\\intermediates\\res\\merged\\debug\\drawable-watch-v20_common_google_signin_btn_text_disabled.xml.flat",
+        "source": "C:\\Users\\hocke\\.gradle\\caches\\transforms-2\\files-2.1\\9ea2a7edc64d939399012121363e6725\\jetified-play-services-auth-16.0.1\\res\\drawable-watch-v20\\common_google_signin_btn_text_disabled.xml"
+    },
+    {
         "merged": "C:\\Users\\hocke\\Documents\\Coding Projects\\VS Code Projects\\strippedSoshi\\build\\app\\intermediates\\res\\merged\\debug\\color_abc_primary_text_material_light.xml.flat",
         "source": "C:\\Users\\hocke\\.gradle\\caches\\transforms-2\\files-2.1\\2551154c7d5ac78c1819adbdfd5480f4\\appcompat-1.1.0\\res\\color\\abc_primary_text_material_light.xml"
     },
@@ -498,6 +506,10 @@
     {
         "merged": "C:\\Users\\hocke\\Documents\\Coding Projects\\VS Code Projects\\strippedSoshi\\build\\app\\intermediates\\res\\merged\\debug\\drawable_abc_text_cursor_material.xml.flat",
         "source": "C:\\Users\\hocke\\.gradle\\caches\\transforms-2\\files-2.1\\2551154c7d5ac78c1819adbdfd5480f4\\appcompat-1.1.0\\res\\drawable\\abc_text_cursor_material.xml"
+    },
+    {
+        "merged": "C:\\Users\\hocke\\Documents\\Coding Projects\\VS Code Projects\\strippedSoshi\\build\\app\\intermediates\\res\\merged\\debug\\drawable-watch-v20_common_google_signin_btn_text_dark_normal.xml.flat",
+        "source": "C:\\Users\\hocke\\.gradle\\caches\\transforms-2\\files-2.1\\9ea2a7edc64d939399012121363e6725\\jetified-play-services-auth-16.0.1\\res\\drawable-watch-v20\\common_google_signin_btn_text_dark_normal.xml"
     },
     {
         "merged": "C:\\Users\\hocke\\Documents\\Coding Projects\\VS Code Projects\\strippedSoshi\\build\\app\\intermediates\\res\\merged\\debug\\drawable-mdpi-v4_abc_popup_background_mtrl_mult.9.png.flat",
