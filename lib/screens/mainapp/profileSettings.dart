@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:my_first_app/styles/styles.dart';
 
 class MyProfileScreen extends StatefulWidget {
   @override
@@ -36,18 +37,13 @@ class MyProfileScreenState extends State<MyProfileScreen> {
                   children: [
                     Text(
                       'Edit Profile Picture',
-                      style: TextStyle(
-                        fontSize: 12,
-                        color: Colors.yellow[200],
-                        letterSpacing: 2,
-                        fontWeight: FontWeight.bold,
-                      ),
+                      style: CustomLight,
                     ),
                     SizedBox(width: 5),
                     Icon(
                       Icons.mode_edit,
                       size: 15,
-                      color: Colors.yellow[200],
+                      color: Colors.tealAccent,
                     )
                   ],
                 ),
@@ -64,7 +60,7 @@ class MyProfileScreenState extends State<MyProfileScreen> {
                     letterSpacing: 2,
                   ),
                 ),
-                SizedBox(width: 146),
+                SizedBox(width: 120),
                 RaisedButton(
                     color: Colors.grey[850],
                     onPressed: () {
@@ -74,14 +70,11 @@ class MyProfileScreenState extends State<MyProfileScreen> {
                       children: [
                         Text(
                           'Edit Profile',
-                          style: TextStyle(
-                            color: Colors.yellow[200],
-                            fontSize: 15,
-                          ),
+                          style: CustomLight,
                         ),
                         SizedBox(width: 5),
                         Icon(Icons.mode_edit,
-                            color: Colors.yellow[200], size: 15)
+                            color: Colors.tealAccent, size: 15)
                       ],
                     )),
               ],
@@ -90,12 +83,7 @@ class MyProfileScreenState extends State<MyProfileScreen> {
               children: [
                 Text(
                   'Yuvan Sundrani',
-                  style: TextStyle(
-                    color: Colors.yellow[200],
-                    letterSpacing: 2,
-                    fontSize: 20,
-                    fontWeight: FontWeight.bold,
-                  ),
+                  style: CustomLight,
                 ),
               ],
             ),
@@ -112,15 +100,7 @@ class MyProfileScreenState extends State<MyProfileScreen> {
               ],
             ),
             SizedBox(height: 10),
-            Text(
-              '$username',
-              style: TextStyle(
-                color: Colors.yellow[200],
-                letterSpacing: 2,
-                fontSize: 20,
-                fontWeight: FontWeight.bold,
-              ),
-            ),
+            Text('$username', style: CustomLight),
             SizedBox(height: 20),
             Text(
               'Password',
@@ -134,24 +114,12 @@ class MyProfileScreenState extends State<MyProfileScreen> {
             ),
             Text(
               '$password',
-              style: TextStyle(
-                  color: Colors.yellow[200],
-                  fontSize: 20,
-                  letterSpacing: 2,
-                  fontWeight: FontWeight.bold),
+              style: CustomLight,
             ),
             SizedBox(height: 10),
             Icon(Icons.email_outlined, color: Colors.grey, size: 25),
             SizedBox(height: 10),
-            Text(
-              'yuvan.sundrani@gmail.com',
-              style: TextStyle(
-                color: Colors.yellow[200],
-                letterSpacing: 2.0,
-                fontSize: 15,
-                fontWeight: FontWeight.bold,
-              ),
-            ),
+            Text('yuvan.sundrani@gmail.com', style: CustomLight),
             SizedBox(height: 20),
             Icon(
               Icons.emoji_people, // or Icons.poeple_round
@@ -162,15 +130,7 @@ class MyProfileScreenState extends State<MyProfileScreen> {
             //Row with add button on the right of it
             Row(
               children: <Widget>[
-                Text(
-                  '$connectionCount' + ' connections',
-                  style: TextStyle(
-                    color: Colors.yellow[200],
-                    letterSpacing: 2,
-                    fontSize: 20,
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
+                Text('$connectionCount' + ' connections', style: CustomLight),
                 SizedBox(width: 10),
                 FloatingActionButton(
                   splashColor: Colors.grey,
@@ -186,7 +146,7 @@ class MyProfileScreenState extends State<MyProfileScreen> {
                     Icons.add,
                     color: Colors.black,
                   ),
-                  backgroundColor: Colors.yellow[500],
+                  backgroundColor: Colors.tealAccent,
                 ),
               ],
             )

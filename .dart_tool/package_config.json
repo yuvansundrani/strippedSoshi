@@ -2,6 +2,18 @@
   "configVersion": 2,
   "packages": [
     {
+      "name": "archive",
+      "rootUri": "file:///C:/Users/hocke/Flutter/flutter/.pub-cache/hosted/pub.dartlang.org/archive-2.0.13",
+      "packageUri": "lib/",
+      "languageVersion": "2.0"
+    },
+    {
+      "name": "args",
+      "rootUri": "file:///C:/Users/hocke/Flutter/flutter/.pub-cache/hosted/pub.dartlang.org/args-1.6.0",
+      "packageUri": "lib/",
+      "languageVersion": "2.3"
+    },
+    {
       "name": "async",
       "rootUri": "file:///C:/Users/hocke/Flutter/flutter/.pub-cache/hosted/pub.dartlang.org/async-2.5.0-nullsafety.1",
       "packageUri": "lib/",
@@ -56,6 +68,18 @@
       "languageVersion": "2.10"
     },
     {
+      "name": "convert",
+      "rootUri": "file:///C:/Users/hocke/Flutter/flutter/.pub-cache/hosted/pub.dartlang.org/convert-2.1.1",
+      "packageUri": "lib/",
+      "languageVersion": "1.17"
+    },
+    {
+      "name": "crypto",
+      "rootUri": "file:///C:/Users/hocke/Flutter/flutter/.pub-cache/hosted/pub.dartlang.org/crypto-2.1.5",
+      "packageUri": "lib/",
+      "languageVersion": "2.3"
+    },
+    {
       "name": "cupertino_icons",
       "rootUri": "file:///C:/Users/hocke/Flutter/flutter/.pub-cache/hosted/pub.dartlang.org/cupertino_icons-0.1.3",
       "packageUri": "lib/",
@@ -64,6 +88,18 @@
     {
       "name": "curved_navigation_bar",
       "rootUri": "file:///C:/Users/hocke/Flutter/flutter/.pub-cache/hosted/pub.dartlang.org/curved_navigation_bar-0.3.7",
+      "packageUri": "lib/",
+      "languageVersion": "2.0"
+    },
+    {
+      "name": "dependencies",
+      "rootUri": "file:///C:/Users/hocke/Flutter/flutter/.pub-cache/hosted/pub.dartlang.org/dependencies-0.1.5",
+      "packageUri": "lib/",
+      "languageVersion": "2.0"
+    },
+    {
+      "name": "disposables",
+      "rootUri": "file:///C:/Users/hocke/Flutter/flutter/.pub-cache/hosted/pub.dartlang.org/disposables-0.1.2",
       "packageUri": "lib/",
       "languageVersion": "2.0"
     },
@@ -206,10 +242,28 @@
       "languageVersion": "2.0"
     },
     {
+      "name": "logging",
+      "rootUri": "file:///C:/Users/hocke/Flutter/flutter/.pub-cache/hosted/pub.dartlang.org/logging-0.11.4",
+      "packageUri": "lib/",
+      "languageVersion": "2.0"
+    },
+    {
+      "name": "lottie",
+      "rootUri": "file:///C:/Users/hocke/Flutter/flutter/.pub-cache/hosted/pub.dartlang.org/lottie-0.7.0+1",
+      "packageUri": "lib/",
+      "languageVersion": "2.7"
+    },
+    {
       "name": "matcher",
       "rootUri": "file:///C:/Users/hocke/Flutter/flutter/.pub-cache/hosted/pub.dartlang.org/matcher-0.12.10-nullsafety.1",
       "packageUri": "lib/",
       "languageVersion": "2.10"
+    },
+    {
+      "name": "material_dialogs",
+      "rootUri": "file:///C:/Users/hocke/Flutter/flutter/.pub-cache/hosted/pub.dartlang.org/material_dialogs-0.1.3",
+      "packageUri": "lib/",
+      "languageVersion": "2.7"
     },
     {
       "name": "meta",
@@ -326,7 +380,7 @@
       "languageVersion": "2.7"
     }
   ],
-  "generated": "2021-01-23T20:26:30.741127Z",
+  "generated": "2021-02-10T18:39:32.090551Z",
   "generator": "pub",
   "generatorVersion": "2.10.4"
 }

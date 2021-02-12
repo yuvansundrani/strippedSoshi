@@ -40,7 +40,7 @@ class AuthService {
       UserCredential registerResult = await _auth
           .createUserWithEmailAndPassword(email: emailIn, password: passwordIn);
       User user = registerResult.user;
-      await DataBaseService(UIDIn: user.uid).updateUserData(username: "null");
+      await DataBaseService(UIDIn: user.uid).createUserFile();
       return user;
     } catch (e) {
       print(e.toString());

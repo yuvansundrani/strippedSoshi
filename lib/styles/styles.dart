@@ -7,7 +7,14 @@ TextStyle CustomYellow = new TextStyle(
     fontStyle: FontStyle.italic,
     fontWeight: FontWeight.bold);
 
+TextStyle CustomLight = new TextStyle(
+    color: Colors.tealAccent[200],
+    fontSize: 15,
+    letterSpacing: 2,
+    fontStyle: FontStyle.italic,
+    fontWeight: FontWeight.bold);
+
 ThemeData CustomTheme = new ThemeData(
-  primaryColor: Colors.black,
-  accentColor: Colors.black,
+  primaryColor: Colors.white,
+  accentColor: Colors.white,
 );

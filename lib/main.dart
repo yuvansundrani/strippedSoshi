@@ -1,5 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:my_first_app/services/database.dart';
 import 'package:provider/provider.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'services/auth.dart';
@@ -23,9 +24,9 @@ class _MyAppState extends State<MyApp> {
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
-  runApp(MyApp(
-      //routes: {
-      //'/profileSettings': (context) => ProfileSettings(),
-      //}
-      ));
+  // testing
+  // print(
+  //     new DataBaseService(UIDIn: "RuPDkynjZxbVezUgP6KyVj2b1tu1").getFriends());
+  // end testing
+  runApp(MyApp());
 }

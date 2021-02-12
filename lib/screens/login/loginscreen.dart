@@ -136,7 +136,7 @@ class _LoginScreenState extends State<LoginScreen> {
         elevation: 5.0,
         onPressed: () async {
           print('Login Button Pressed');
-          User loginResult = await _authService.signInWithUsernameAndPassword(
+          User loginResult = await _authService.signInWithEmailAndPassword(
               emailIn: _emailController.text,
               passwordIn: _passwordController.text);
         },
@@ -230,7 +230,12 @@ class _LoginScreenState extends State<LoginScreen> {
 
   Widget _buildSignupBtn() {
     return GestureDetector(
-      onTap: () => print('Sign Up Button Pressed'),
+      onTap: () {
+        Navigator.push(context, MaterialPageRoute(builder: (context) {
+          // HORRIBLE STYLE, REDO THIS
+          return Scaffold(body: _RegisterEmailSection());
+        }));
+      },
       child: RichText(
         text: TextSpan(
           children: [
@@ -333,6 +338,7 @@ class _RegisterEmailSection extends StatefulWidget {
 }
 
 class _RegisterEmailSectionState extends State<_RegisterEmailSection> {
+  final AuthService _authService = AuthService();
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
@@ -371,7 +377,9 @@ class _RegisterEmailSectionState extends State<_RegisterEmailSection> {
             child: RaisedButton(
               onPressed: () async {
                 if (_formKey.currentState.validate()) {
-                  //_register();
+                  _authService.registerWithEmailAndPassword(
+                      emailIn: _emailController.text.trim(),
+                      passwordIn: _passwordController.text.trim());
                 }
               },
               child: const Text('Submit'),

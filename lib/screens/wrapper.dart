@@ -13,7 +13,7 @@ class _WrapperState extends State<Wrapper> {
   @override
   Widget build(BuildContext context) {
     final user = Provider.of<User>(context);
-
+    // final user = null;
     if (user == null) {
       return LoginScreen();
     } else {
