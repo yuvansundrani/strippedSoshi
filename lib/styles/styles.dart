@@ -8,7 +8,7 @@ TextStyle CustomYellow = new TextStyle(
     fontWeight: FontWeight.bold);
 
 TextStyle CustomLight = new TextStyle(
-    color: Colors.tealAccent[200],
+    color: Colors.yellow[200],
     fontSize: 15,
     letterSpacing: 2,
     fontStyle: FontStyle.italic,

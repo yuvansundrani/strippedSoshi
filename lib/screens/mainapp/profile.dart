@@ -1,7 +1,11 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:my_first_app/services/database.dart';
+import 'package:provider/provider.dart';
 // import 'package:my_first_app/search.dart';
 // import 'profileSettings.dart';
 // import 'main.dart';
+import 'chooseSocials.dart';
 import 'profileSettings.dart';
 
 class Profile extends StatefulWidget {
@@ -10,20 +14,87 @@ class Profile extends StatefulWidget {
 }
 
 class _ProfileState extends State<Profile> {
-  @override
-  String usernameInsta = "yuvansundrani";
-  String usernameSnap = "yuvan412";
-  String usernameFacebook = 'yuvan.sundrani';
-  String usernameLink = 'yuvan.sun';
-  String usernameTwitter = 'yuvans_2_fr35h';
-  bool isSwitched1 = false;
-  bool isSwitched2 = false;
-  bool isSwitched3 = false;
-  bool isSwitched4 = false;
-  bool isSwitched5 = false;
+  Widget createSMSwitchCard({String platformName, String UID}) {
+    DatabaseService databaseService = new DatabaseService(UIDIn: UID);
+    // used to figure out if the button has been loaded from the database
+    bool hasLoaded = false;
+    // used to store local state of switch
+    bool isSwitched = true;
+    return Card(
+      elevation: 20,
+      color: Colors.grey[850],
+      child: Padding(
+        padding: const EdgeInsets.all(5.0),
+        child: Row(
+          children: <Widget>[
+            hasLoaded
+                ? Container(
+                    child: Switch(
+                    value: isSwitched,
+                    onChanged: (bool value) {
+                      setState(() {
+                        isSwitched = value;
+                        databaseService.updatePlatformSwitch(
+                            platform: platformName, state: value);
+                      });
+                    },
+                    activeTrackColor: Colors.grey,
+                    activeColor: Colors.yellowAccent,
+                  ))
+                // only use FutureBuilder for first build, then switch to local state
+                : FutureBuilder(
+                    future: databaseService.getUserSwitches(UID),
+                    builder: (BuildContext context,
+                        AsyncSnapshot<Map<String, dynamic>> snapshot) {
+                      Map<String, dynamic> userSwitches = snapshot.data;
+                      // set switch to state of platform switch from database
+                      isSwitched =
+                          snapshot.hasData ? userSwitches[platformName] : false;
+                      return Switch(
+                        value: isSwitched,
+                        onChanged: (bool value) {
+                          setState(() {
+                            isSwitched = value;
+                            hasLoaded = true;
+                            databaseService.updatePlatformSwitch(
+                                platform: platformName, state: value);
+                          });
+                        },
+                        activeTrackColor: Colors.grey,
+                        activeColor: Colors.yellowAccent,
+                      );
+                    }), //REGULAR WIDGET
+
+            Image.asset('assets/images/SMLogos/' + platformName + 'Logo.png',
+                height: 60, width: 60),
+            SizedBox(width: 10),
+            FutureBuilder(
+                future: databaseService.getUserProfileNames(UID),
+                builder: (BuildContext context,
+                    AsyncSnapshot<Map<String, dynamic>> snapshot) {
+                  String platformUsername;
+                  if (snapshot.hasData) {
+                    platformUsername = snapshot.data[platformName];
+                  }
+                  return Text(
+                    platformUsername != null ? platformUsername : "Loading...",
+                    style: TextStyle(
+                      fontSize: 20,
+                      //fontWeight: FontWeight.bold,
+                      color: Colors.yellow[200],
+                      letterSpacing: 2.0,
+                    ),
+                  );
+                })
+          ],
+        ),
+      ),
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
+    String UID = Provider.of<User>(context, listen: false).uid;
     return Scaffold(
       backgroundColor: Colors.grey[900],
       // floatingActionButton: FloatingActionButton(
@@ -53,7 +124,13 @@ class _ProfileState extends State<Profile> {
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: <Widget>[
                       RaisedButton(
-                          onPressed: () {},
+                          onPressed: () {
+                            Navigator.push(context,
+                                MaterialPageRoute(builder: (context) {
+                              // HORRIBLE STYLE, REDO THIS
+                              return Scaffold(body: ProfileSettings());
+                            }));
+                          },
                           color: Colors.grey[850],
                           child: Row(
                             children: <Widget>[
@@ -82,189 +159,15 @@ class _ProfileState extends State<Profile> {
                     ],
                   ),
                   SizedBox(height: 10),
-                  Card(
-                    elevation: 20,
-                    color: Colors.grey[850],
-                    child: Padding(
-                      padding: const EdgeInsets.all(5.0),
-                      child: Row(
-                        children: <Widget>[
-                          Switch(
-                            value: isSwitched1,
-                            onChanged: (value) {
-                              setState(() {
-                                isSwitched1 = value;
-                                print(isSwitched1);
-                              });
-                            },
-                            activeTrackColor: Colors.grey,
-                            activeColor: Colors.yellowAccent,
-                          ),
-                          Image.asset('assets/images/SMLogos/InstagramLogo.png',
-                              height: 60, width: 60),
-                          SizedBox(width: 10),
-                          Text(
-                            '$usernameInsta',
-                            style: TextStyle(
-                              fontSize: 20,
-                              //fontWeight: FontWeight.bold,
-                              color: Colors.yellow[200],
-                              letterSpacing: 2.0,
-                            ),
-                          )
-                          // TextField(
-                          //   //obscureText: true,
-                          //   decoration:
-                          //       InputDecoration(labelText: "Username",
-                          //           // border: InputBorder.none,
-                          //           // labelText: 'username',
-                          //           //fillColor: Colors.yellow,
-                          //           ),
-                          // )
-                        ],
-                      ),
-                    ),
-                  ),
+                  createSMSwitchCard(platformName: "Instagram", UID: UID),
                   SizedBox(height: 30),
-                  Card(
-                    elevation: 20,
-                    color: Colors.grey[850],
-                    child: Padding(
-                      padding: const EdgeInsets.all(5.0),
-                      child: Row(
-                        children: <Widget>[
-                          Switch(
-                            value: isSwitched2,
-                            onChanged: (value) {
-                              setState(() {
-                                isSwitched2 = value;
-                                print(isSwitched2);
-                              });
-                            },
-                            activeTrackColor: Colors.grey,
-                            activeColor: Colors.yellowAccent,
-                          ),
-                          Image.asset('assets/images/SMLogos/snap.png',
-                              height: 60, width: 60),
-                          SizedBox(width: 10),
-                          Text(
-                            '$usernameSnap',
-                            style: TextStyle(
-                              fontSize: 20,
-                              //fontWeight: FontWeight.bold,
-                              color: Colors.yellow[200],
-                              letterSpacing: 2.0,
-                            ),
-                          )
-                        ],
-                      ),
-                    ),
-                  ),
+                  createSMSwitchCard(platformName: "Snapchat", UID: UID),
                   SizedBox(height: 30),
-                  Card(
-                    elevation: 20,
-                    color: Colors.grey[850],
-                    child: Padding(
-                      padding: const EdgeInsets.all(5.0),
-                      child: Row(
-                        children: <Widget>[
-                          Switch(
-                            value: isSwitched3,
-                            onChanged: (value) {
-                              setState(() {
-                                isSwitched3 = value;
-                                print(isSwitched3);
-                              });
-                            },
-                            activeTrackColor: Colors.grey,
-                            activeColor: Colors.yellowAccent,
-                          ),
-                          Image.asset('assets/images/SMLogos/FacebookLogo.png',
-                              height: 60, width: 60),
-                          SizedBox(width: 10),
-                          Text(
-                            '$usernameFacebook',
-                            style: TextStyle(
-                              fontSize: 20,
-                              //fontWeight: FontWeight.bold,
-                              color: Colors.yellow[200],
-                              letterSpacing: 2.0,
-                            ),
-                          )
-                        ],
-                      ),
-                    ),
-                  ),
+                  createSMSwitchCard(platformName: "Facebook", UID: UID),
                   SizedBox(height: 30),
-                  Card(
-                    elevation: 20,
-                    color: Colors.grey[850],
-                    child: Padding(
-                      padding: const EdgeInsets.all(5.0),
-                      child: Row(
-                        children: <Widget>[
-                          Switch(
-                            value: isSwitched4,
-                            onChanged: (value) {
-                              setState(() {
-                                isSwitched4 = value;
-                                print(isSwitched4);
-                              });
-                            },
-                            activeTrackColor: Colors.grey,
-                            activeColor: Colors.yellowAccent,
-                          ),
-                          Image.asset('assets/images/SMLogos/LinkedinLogo.png',
-                              height: 60, width: 60),
-                          SizedBox(width: 10),
-                          Text(
-                            '$usernameLink',
-                            style: TextStyle(
-                              fontSize: 20,
-                              //fontWeight: FontWeight.bold,
-                              color: Colors.yellow[200],
-                              letterSpacing: 2.0,
-                            ),
-                          )
-                        ],
-                      ),
-                    ),
-                  ),
+                  createSMSwitchCard(platformName: "Twitter", UID: UID),
                   SizedBox(height: 30),
-                  Card(
-                    elevation: 20,
-                    color: Colors.grey[850],
-                    child: Padding(
-                      padding: const EdgeInsets.all(5.0),
-                      child: Row(
-                        children: <Widget>[
-                          Switch(
-                            value: isSwitched5,
-                            onChanged: (value) {
-                              setState(() {
-                                isSwitched5 = value;
-                                print(isSwitched5);
-                              });
-                            },
-                            activeTrackColor: Colors.grey,
-                            activeColor: Colors.yellowAccent,
-                          ),
-                          Image.asset('assets/images/SMLogos/TwitterLogo.png',
-                              height: 60, width: 60),
-                          SizedBox(width: 10),
-                          Text(
-                            '$usernameTwitter',
-                            style: TextStyle(
-                              fontSize: 20,
-                              //fontWeight: FontWeight.bold,
-                              color: Colors.yellow[200],
-                              letterSpacing: 2.0,
-                            ),
-                          )
-                        ],
-                      ),
-                    ),
-                  ),
+                  createSMSwitchCard(platformName: "Linkedin", UID: UID),
                   // TextField(
                   //   style: TextStyle(
                   //     color: Colors.yellow,
@@ -275,7 +178,13 @@ class _ProfileState extends State<Profile> {
                   Padding(
                     padding: const EdgeInsets.fromLTRB(70, 0, 70, 30),
                     child: RaisedButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        Navigator.push(context,
+                            MaterialPageRoute(builder: (context) {
+                          // HORRIBLE STYLE, REDO THIS
+                          return Scaffold(body: ChooseSocials());
+                        }));
+                      },
                       color: Colors.grey[850],
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.center,
@@ -290,7 +199,7 @@ class _ProfileState extends State<Profile> {
                           ),
                           Text('Add Social',
                               style: TextStyle(
-                                  fontSize: 20,
+                                  fontSize: 14,
                                   color: Colors.yellow[200],
                                   letterSpacing: 3.0,
                                   fontWeight: FontWeight.bold))

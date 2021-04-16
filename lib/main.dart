@@ -6,6 +6,7 @@ import 'package:firebase_core/firebase_core.dart';
 import 'services/auth.dart';
 import 'package:my_first_app/screens/wrapper.dart';
 import 'styles/styles.dart';
+import 'package:flutter/services.dart';
 
 class MyApp extends StatefulWidget {
   @override
@@ -24,9 +25,6 @@ class _MyAppState extends State<MyApp> {
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
-  // testing
-  // print(
-  //     new DataBaseService(UIDIn: "RuPDkynjZxbVezUgP6KyVj2b1tu1").getFriends());
-  // end testing
+  SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
   runApp(MyApp());
 }

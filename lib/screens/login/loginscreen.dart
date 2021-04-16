@@ -377,7 +377,7 @@ class _RegisterEmailSectionState extends State<_RegisterEmailSection> {
             child: RaisedButton(
               onPressed: () async {
                 if (_formKey.currentState.validate()) {
-                  _authService.registerWithEmailAndPassword(
+                  await _authService.registerWithEmailAndPassword(
                       emailIn: _emailController.text.trim(),
                       passwordIn: _passwordController.text.trim());
                 }

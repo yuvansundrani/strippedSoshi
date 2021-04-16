@@ -15,6 +15,9 @@ class QRScreen extends StatefulWidget {
 }
 
 class _QRScreenState extends State<QRScreen> {
+  CollectionReference usersCollection =
+      FirebaseFirestore.instance.collection("users");
+
   // stores the scanned string | must do something with string for functionality
   String _scanBarcode = 'Unknown';
 
@@ -39,30 +42,40 @@ class _QRScreenState extends State<QRScreen> {
   }
 
   // return a popup dialog with user information
-  Future<dynamic> _displayUser({BuildContext context, otherUID}) {
+  Future<dynamic> _displayUser({BuildContext context, otherUID}) async {
+    String addedUserRealName;
+    String addedUsername;
+    DatabaseService databaseService = new DatabaseService(
+        UIDIn: Provider.of<User>(context, listen: false).uid);
+
+    addedUserRealName = await databaseService.getFullName(otherUID);
+    addedUsername = await databaseService.getUsername(
+        otherUID: otherUID, platform: "Soshi");
+    bool isFriendAdded = await databaseService.isFriendAdded(otherUID);
     return Dialogs.materialDialog(
         color: Colors.white,
-        msg: 'UID $otherUID',
-        title: 'User Found!',
+        msg: '@' + addedUsername,
+        title: addedUserRealName,
         animation: 'assets/animations/addFriendAnimation.json',
         context: context,
         actions: [
           IconsButton(
             onPressed: () {
-              try {
-                DataBaseService dataBaseService = new DataBaseService(
-                    UIDIn: Provider.of<User>(context, listen: false).uid);
-                dataBaseService.addFriend(friendUID: otherUID);
-              } catch (e) {
-                print(e);
-              }
+              isFriendAdded
+                  ?
+                  // show friend profile popup
+                  print("Showing friend profile...")
+                  : setState(() {
+                      isFriendAdded = true;
+                      databaseService.addFriend(friendUID: otherUID);
+                    });
             },
-            text: 'Add',
-            iconData: Icons.add,
-            color: Colors.blue,
+            text: isFriendAdded ? 'View Profile' : 'Connect',
+            iconData: isFriendAdded ? Icons.person : Icons.add,
+            color: isFriendAdded ? Colors.red : Colors.blue,
             textStyle: TextStyle(color: Colors.white),
             iconColor: Colors.white,
-          ),
+          )
         ]);
   }
 
@@ -98,7 +111,7 @@ class _QRScreenState extends State<QRScreen> {
               data: Provider.of<User>(context).uid,
               size: 400.0,
               padding: EdgeInsets.all(50.0),
-              foregroundColor: Colors.tealAccent,
+              foregroundColor: Colors.yellow[200],
             ),
             RaisedButton(
               child: Text("Scan QR Code"),
@@ -116,31 +129,5 @@ class _QRScreenState extends State<QRScreen> {
             )
           ]),
     ));
-  }
-}
-
-class UserInformation extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    CollectionReference users = FirebaseFirestore.instance.collection('users');
-
-    return StreamBuilder<QuerySnapshot>(
-      stream: users.snapshots(),
-      builder: (BuildContext context, AsyncSnapshot<QuerySnapshot> snapshot) {
-        if (snapshot.hasError) {
-          return Text('Something went wrong');
-        }
-
-        if (snapshot.connectionState == ConnectionState.waiting) {
-          return Text("Loading");
-        }
-
-        return new Column(
-          children: snapshot.data.docs.map((DocumentSnapshot document) {
-            return new Column(children: [(document.data()['Usernames'])]);
-          }).toList(),
-        );
-      },
-    );
   }
 }

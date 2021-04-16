@@ -7,6 +7,7 @@ INJECTED from C:\Users\hocke\Documents\Coding Projects\VS Code Projects\stripped
 MERGED from C:\Users\hocke\Documents\Coding Projects\VS Code Projects\strippedSoshi\android\app\src\main\AndroidManifest.xml:1:1-47:12
 MERGED from [:firebase_analytics] C:\Users\hocke\Documents\Coding Projects\VS Code Projects\strippedSoshi\build\firebase_analytics\intermediates\library_manifest\debug\AndroidManifest.xml:2:1-19:12
 MERGED from [:firebase_auth] C:\Users\hocke\Documents\Coding Projects\VS Code Projects\strippedSoshi\build\firebase_auth\intermediates\library_manifest\debug\AndroidManifest.xml:2:1-15:12
+MERGED from [:url_launcher] C:\Users\hocke\Documents\Coding Projects\VS Code Projects\strippedSoshi\build\url_launcher\intermediates\library_manifest\debug\AndroidManifest.xml:2:1-14:12
 MERGED from [:flutter_barcode_scanner] C:\Users\hocke\Documents\Coding Projects\VS Code Projects\strippedSoshi\build\flutter_barcode_scanner\intermediates\library_manifest\debug\AndroidManifest.xml:2:1-21:12
 MERGED from [:flutter_plugin_android_lifecycle] C:\Users\hocke\Documents\Coding Projects\VS Code Projects\strippedSoshi\build\flutter_plugin_android_lifecycle\intermediates\library_manifest\debug\AndroidManifest.xml:2:1-7:12
 MERGED from [:cloud_firestore] C:\Users\hocke\Documents\Coding Projects\VS Code Projects\strippedSoshi\build\cloud_firestore\intermediates\library_manifest\debug\AndroidManifest.xml:2:1-15:12
@@ -102,6 +103,8 @@ MERGED from [:firebase_analytics] C:\Users\hocke\Documents\Coding Projects\VS Co
 MERGED from [:firebase_analytics] C:\Users\hocke\Documents\Coding Projects\VS Code Projects\strippedSoshi\build\firebase_analytics\intermediates\library_manifest\debug\AndroidManifest.xml:11:5-17:19
 MERGED from [:firebase_auth] C:\Users\hocke\Documents\Coding Projects\VS Code Projects\strippedSoshi\build\firebase_auth\intermediates\library_manifest\debug\AndroidManifest.xml:7:5-13:19
 MERGED from [:firebase_auth] C:\Users\hocke\Documents\Coding Projects\VS Code Projects\strippedSoshi\build\firebase_auth\intermediates\library_manifest\debug\AndroidManifest.xml:7:5-13:19
+MERGED from [:url_launcher] C:\Users\hocke\Documents\Coding Projects\VS Code Projects\strippedSoshi\build\url_launcher\intermediates\library_manifest\debug\AndroidManifest.xml:7:5-12:19
+MERGED from [:url_launcher] C:\Users\hocke\Documents\Coding Projects\VS Code Projects\strippedSoshi\build\url_launcher\intermediates\library_manifest\debug\AndroidManifest.xml:7:5-12:19
 MERGED from [:flutter_barcode_scanner] C:\Users\hocke\Documents\Coding Projects\VS Code Projects\strippedSoshi\build\flutter_barcode_scanner\intermediates\library_manifest\debug\AndroidManifest.xml:15:5-19:19
 MERGED from [:flutter_barcode_scanner] C:\Users\hocke\Documents\Coding Projects\VS Code Projects\strippedSoshi\build\flutter_barcode_scanner\intermediates\library_manifest\debug\AndroidManifest.xml:15:5-19:19
 MERGED from [:cloud_firestore] C:\Users\hocke\Documents\Coding Projects\VS Code Projects\strippedSoshi\build\cloud_firestore\intermediates\library_manifest\debug\AndroidManifest.xml:7:5-13:19
@@ -222,6 +225,8 @@ MERGED from [:firebase_analytics] C:\Users\hocke\Documents\Coding Projects\VS Co
 MERGED from [:firebase_analytics] C:\Users\hocke\Documents\Coding Projects\VS Code Projects\strippedSoshi\build\firebase_analytics\intermediates\library_manifest\debug\AndroidManifest.xml:5:5-44
 MERGED from [:firebase_auth] C:\Users\hocke\Documents\Coding Projects\VS Code Projects\strippedSoshi\build\firebase_auth\intermediates\library_manifest\debug\AndroidManifest.xml:5:5-44
 MERGED from [:firebase_auth] C:\Users\hocke\Documents\Coding Projects\VS Code Projects\strippedSoshi\build\firebase_auth\intermediates\library_manifest\debug\AndroidManifest.xml:5:5-44
+MERGED from [:url_launcher] C:\Users\hocke\Documents\Coding Projects\VS Code Projects\strippedSoshi\build\url_launcher\intermediates\library_manifest\debug\AndroidManifest.xml:5:5-44
+MERGED from [:url_launcher] C:\Users\hocke\Documents\Coding Projects\VS Code Projects\strippedSoshi\build\url_launcher\intermediates\library_manifest\debug\AndroidManifest.xml:5:5-44
 MERGED from [:flutter_barcode_scanner] C:\Users\hocke\Documents\Coding Projects\VS Code Projects\strippedSoshi\build\flutter_barcode_scanner\intermediates\library_manifest\debug\AndroidManifest.xml:5:5-7:41
 MERGED from [:flutter_barcode_scanner] C:\Users\hocke\Documents\Coding Projects\VS Code Projects\strippedSoshi\build\flutter_barcode_scanner\intermediates\library_manifest\debug\AndroidManifest.xml:5:5-7:41
 MERGED from [:flutter_plugin_android_lifecycle] C:\Users\hocke\Documents\Coding Projects\VS Code Projects\strippedSoshi\build\flutter_plugin_android_lifecycle\intermediates\library_manifest\debug\AndroidManifest.xml:5:5-44
@@ -466,6 +471,14 @@ ADDED from [:firebase_auth] C:\Users\hocke\Documents\Coding Projects\VS Code Pro
 		ADDED from [:firebase_auth] C:\Users\hocke\Documents\Coding Projects\VS Code Projects\strippedSoshi\build\firebase_auth\intermediates\library_manifest\debug\AndroidManifest.xml:11:17-82
 	android:name
 		ADDED from [:firebase_auth] C:\Users\hocke\Documents\Coding Projects\VS Code Projects\strippedSoshi\build\firebase_auth\intermediates\library_manifest\debug\AndroidManifest.xml:10:17-124
+activity#io.flutter.plugins.urllauncher.WebViewActivity
+ADDED from [:url_launcher] C:\Users\hocke\Documents\Coding Projects\VS Code Projects\strippedSoshi\build\url_launcher\intermediates\library_manifest\debug\AndroidManifest.xml:8:9-11:74
+	android:exported
+		ADDED from [:url_launcher] C:\Users\hocke\Documents\Coding Projects\VS Code Projects\strippedSoshi\build\url_launcher\intermediates\library_manifest\debug\AndroidManifest.xml:10:13-37
+	android:theme
+		ADDED from [:url_launcher] C:\Users\hocke\Documents\Coding Projects\VS Code Projects\strippedSoshi\build\url_launcher\intermediates\library_manifest\debug\AndroidManifest.xml:11:13-71
+	android:name
+		ADDED from [:url_launcher] C:\Users\hocke\Documents\Coding Projects\VS Code Projects\strippedSoshi\build\url_launcher\intermediates\library_manifest\debug\AndroidManifest.xml:9:13-74
 uses-permission#android.permission.CAMERA
 ADDED from [:flutter_barcode_scanner] C:\Users\hocke\Documents\Coding Projects\VS Code Projects\strippedSoshi\build\flutter_barcode_scanner\intermediates\library_manifest\debug\AndroidManifest.xml:9:5-65
 	android:name

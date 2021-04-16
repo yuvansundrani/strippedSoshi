@@ -40,11 +40,19 @@ class AuthService {
       UserCredential registerResult = await _auth
           .createUserWithEmailAndPassword(email: emailIn, password: passwordIn);
       User user = registerResult.user;
-      await DataBaseService(UIDIn: user.uid).createUserFile();
+      DatabaseService databaseService = DatabaseService(UIDIn: user.uid);
+      await databaseService.createUserFile();
+      // USE EMAIL FOR NOW -- HAVE USER CREATE USERNAME WHEN REGISTERING
+      databaseService.updateUsernameForPlatform(
+          platform: "Soshi", username: emailIn);
       return user;
     } catch (e) {
       print(e.toString());
       return null;
     }
+  }
+
+  Future<void> signOut() async {
+    return await _auth.signOut();
   }
 }
