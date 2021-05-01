@@ -217,7 +217,7 @@
     },
     {
         "merged": "C:\\Users\\hocke\\Documents\\Coding Projects\\VS Code Projects\\strippedSoshi\\build\\app\\intermediates\\res\\merged\\debug\\drawable-watch-v20_common_google_signin_btn_text_light_normal.xml.flat",
-        "source": "C:\\Users\\hocke\\.gradle\\caches\\transforms-2\\files-2.1\\9ea2a7edc64d939399012121363e6725\\jetified-play-services-auth-16.0.1\\res\\drawable-watch-v20\\common_google_signin_btn_text_light_normal.xml"
+        "source": "C:\\Users\\hocke\\.gradle\\caches\\transforms-2\\files-2.1\\7b61b4043ff1d98e8835b5556030eb13\\jetified-play-services-auth-16.0.1\\res\\drawable-watch-v20\\common_google_signin_btn_text_light_normal.xml"
     },
     {
         "merged": "C:\\Users\\hocke\\Documents\\Coding Projects\\VS Code Projects\\strippedSoshi\\build\\app\\intermediates\\res\\merged\\debug\\drawable-mdpi-v4_abc_list_pressed_holo_light.9.png.flat",
@@ -365,7 +365,7 @@
     },
     {
         "merged": "C:\\Users\\hocke\\Documents\\Coding Projects\\VS Code Projects\\strippedSoshi\\build\\app\\intermediates\\res\\merged\\debug\\drawable-watch-v20_common_google_signin_btn_text_disabled.xml.flat",
-        "source": "C:\\Users\\hocke\\.gradle\\caches\\transforms-2\\files-2.1\\9ea2a7edc64d939399012121363e6725\\jetified-play-services-auth-16.0.1\\res\\drawable-watch-v20\\common_google_signin_btn_text_disabled.xml"
+        "source": "C:\\Users\\hocke\\.gradle\\caches\\transforms-2\\files-2.1\\7b61b4043ff1d98e8835b5556030eb13\\jetified-play-services-auth-16.0.1\\res\\drawable-watch-v20\\common_google_signin_btn_text_disabled.xml"
     },
     {
         "merged": "C:\\Users\\hocke\\Documents\\Coding Projects\\VS Code Projects\\strippedSoshi\\build\\app\\intermediates\\res\\merged\\debug\\color_abc_primary_text_material_light.xml.flat",
@@ -509,7 +509,7 @@
     },
     {
         "merged": "C:\\Users\\hocke\\Documents\\Coding Projects\\VS Code Projects\\strippedSoshi\\build\\app\\intermediates\\res\\merged\\debug\\drawable-watch-v20_common_google_signin_btn_text_dark_normal.xml.flat",
-        "source": "C:\\Users\\hocke\\.gradle\\caches\\transforms-2\\files-2.1\\9ea2a7edc64d939399012121363e6725\\jetified-play-services-auth-16.0.1\\res\\drawable-watch-v20\\common_google_signin_btn_text_dark_normal.xml"
+        "source": "C:\\Users\\hocke\\.gradle\\caches\\transforms-2\\files-2.1\\7b61b4043ff1d98e8835b5556030eb13\\jetified-play-services-auth-16.0.1\\res\\drawable-watch-v20\\common_google_signin_btn_text_dark_normal.xml"
     },
     {
         "merged": "C:\\Users\\hocke\\Documents\\Coding Projects\\VS Code Projects\\strippedSoshi\\build\\app\\intermediates\\res\\merged\\debug\\drawable-mdpi-v4_abc_popup_background_mtrl_mult.9.png.flat",

@@ -1,3 +1,4 @@
+import 'package:async/async.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:my_first_app/services/database.dart';
@@ -8,18 +9,37 @@ import 'package:provider/provider.dart';
 import 'chooseSocials.dart';
 import 'profileSettings.dart';
 
-class Profile extends StatefulWidget {
+class SMCard extends StatefulWidget {
+  String platformName, UID;
+  SMCard({String platformName, String UID}) {
+    this.platformName = platformName;
+    this.UID = UID;
+  }
   @override
-  _ProfileState createState() => _ProfileState();
+  _SMCardState createState() => _SMCardState();
 }
 
-class _ProfileState extends State<Profile> {
-  Widget createSMSwitchCard({String platformName, String UID}) {
-    DatabaseService databaseService = new DatabaseService(UIDIn: UID);
-    // used to figure out if the button has been loaded from the database
-    bool hasLoaded = false;
-    // used to store local state of switch
-    bool isSwitched = true;
+class _SMCardState extends State<SMCard> {
+  Future<Map<String, dynamic>> switchesFutureMap;
+  DatabaseService databaseService;
+  String UID, platformName;
+// used to figure out if the button has been loaded from the database
+  bool hasLoaded = false;
+  // used to store local state of switch
+  bool isSwitched = false;
+  @override
+  void initState() {
+    super.initState();
+    UID = widget.UID;
+    platformName = widget.platformName;
+    databaseService = new DatabaseService(UIDIn: UID);
+    switchesFutureMap = databaseService.getUserSwitches(UID);
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    // text controller for username box
+    TextEditingController usernameController = new TextEditingController();
     return Card(
       elevation: 20,
       color: Colors.grey[850],
@@ -27,44 +47,26 @@ class _ProfileState extends State<Profile> {
         padding: const EdgeInsets.all(5.0),
         child: Row(
           children: <Widget>[
-            hasLoaded
-                ? Container(
-                    child: Switch(
-                    value: isSwitched,
-                    onChanged: (bool value) {
-                      setState(() {
-                        isSwitched = value;
+            FutureBuilder(
+                future: switchesFutureMap,
+                builder: (BuildContext context,
+                    AsyncSnapshot<Map<String, dynamic>> snapshot) {
+                  if (snapshot.hasData && hasLoaded == false) {
+                    isSwitched = snapshot.data[platformName];
+                  }
+                  print(hasLoaded);
+                  return Switch(
+                      value: isSwitched,
+                      onChanged: (bool value) {
+                        setState(() {
+                          isSwitched = value;
+                        });
+                        hasLoaded = true;
+                        print(hasLoaded);
                         databaseService.updatePlatformSwitch(
                             platform: platformName, state: value);
                       });
-                    },
-                    activeTrackColor: Colors.grey,
-                    activeColor: Colors.yellowAccent,
-                  ))
-                // only use FutureBuilder for first build, then switch to local state
-                : FutureBuilder(
-                    future: databaseService.getUserSwitches(UID),
-                    builder: (BuildContext context,
-                        AsyncSnapshot<Map<String, dynamic>> snapshot) {
-                      Map<String, dynamic> userSwitches = snapshot.data;
-                      // set switch to state of platform switch from database
-                      isSwitched =
-                          snapshot.hasData ? userSwitches[platformName] : false;
-                      return Switch(
-                        value: isSwitched,
-                        onChanged: (bool value) {
-                          setState(() {
-                            isSwitched = value;
-                            hasLoaded = true;
-                            databaseService.updatePlatformSwitch(
-                                platform: platformName, state: value);
-                          });
-                        },
-                        activeTrackColor: Colors.grey,
-                        activeColor: Colors.yellowAccent,
-                      );
-                    }), //REGULAR WIDGET
-
+                }),
             Image.asset('assets/images/SMLogos/' + platformName + 'Logo.png',
                 height: 60, width: 60),
             SizedBox(width: 10),
@@ -75,23 +77,51 @@ class _ProfileState extends State<Profile> {
                   String platformUsername;
                   if (snapshot.hasData) {
                     platformUsername = snapshot.data[platformName];
+                    usernameController.text = platformUsername;
                   }
-                  return Text(
-                    platformUsername != null ? platformUsername : "Loading...",
-                    style: TextStyle(
-                      fontSize: 20,
-                      //fontWeight: FontWeight.bold,
-                      color: Colors.yellow[200],
-                      letterSpacing: 2.0,
+                  return Expanded(
+                    child: TextField(
+                      controller: usernameController,
+                      // onTap: () => usernameController.text = platformUsername,
+                      onSubmitted: (String text) {
+                        databaseService.updateUsernameForPlatform(
+                            platform: platformName, username: text);
+                        usernameController.text = text;
+                      },
+                      decoration: InputDecoration(
+                        hintText: usernameController.text == ""
+                            ? platformUsername
+                            : usernameController.text,
+                        hintStyle: TextStyle(
+                          fontSize: 20,
+                          //fontWeight: FontWeight.bold,
+                          color: Colors.yellow[200],
+                          letterSpacing: 2.0,
+                        ),
+                      ),
+                      style: TextStyle(
+                        fontSize: 20,
+                        //fontWeight: FontWeight.bold,
+                        color: Colors.yellow[200],
+                        letterSpacing: 2.0,
+                      ),
                     ),
                   );
-                })
+                }),
+            Icon(Icons.edit, color: Colors.yellow[200])
           ],
         ),
       ),
     );
   }
+}
 
+class Profile extends StatefulWidget {
+  @override
+  _ProfileState createState() => _ProfileState();
+}
+
+class _ProfileState extends State<Profile> {
   @override
   Widget build(BuildContext context) {
     String UID = Provider.of<User>(context, listen: false).uid;
@@ -159,22 +189,16 @@ class _ProfileState extends State<Profile> {
                     ],
                   ),
                   SizedBox(height: 10),
-                  createSMSwitchCard(platformName: "Instagram", UID: UID),
+                  SMCard(platformName: "Instagram", UID: UID),
                   SizedBox(height: 30),
-                  createSMSwitchCard(platformName: "Snapchat", UID: UID),
+                  SMCard(platformName: "Snapchat", UID: UID),
                   SizedBox(height: 30),
-                  createSMSwitchCard(platformName: "Facebook", UID: UID),
+                  SMCard(platformName: "Facebook", UID: UID),
                   SizedBox(height: 30),
-                  createSMSwitchCard(platformName: "Twitter", UID: UID),
+                  SMCard(platformName: "Twitter", UID: UID),
                   SizedBox(height: 30),
-                  createSMSwitchCard(platformName: "Linkedin", UID: UID),
-                  // TextField(
-                  //   style: TextStyle(
-                  //     color: Colors.yellow,
-                  //   ),
-                  // ),
+                  SMCard(platformName: "Linkedin", UID: UID),
                   SizedBox(height: 30),
-
                   Padding(
                     padding: const EdgeInsets.fromLTRB(70, 0, 70, 30),
                     child: RaisedButton(

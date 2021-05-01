@@ -1,7 +1,6 @@
-#Thu Apr 15 21:14:56 EDT 2021
+#Sat May 01 19:09:42 EDT 2021
 path.1=classes.dex
 path.0=classes.dex
-renamed.10=classes11.dex
 renamed.9=classes10.dex
 renamed.8=classes9.dex
 renamed.7=classes8.dex
@@ -22,8 +21,6 @@ base.3=C\:\\Users\\hocke\\Documents\\Coding Projects\\VS Code Projects\\stripped
 base.2=C\:\\Users\\hocke\\Documents\\Coding Projects\\VS Code Projects\\strippedSoshi\\build\\app\\intermediates\\dex\\debug\\mergeLibDexDebug\\out\\classes_5.dex
 base.1=C\:\\Users\\hocke\\Documents\\Coding Projects\\VS Code Projects\\strippedSoshi\\build\\app\\intermediates\\dex\\debug\\mergeProjectDexDebug\\out\\classes.dex
 base.0=C\:\\Users\\hocke\\Documents\\Coding Projects\\VS Code Projects\\strippedSoshi\\build\\app\\intermediates\\dex\\debug\\mergeExtDexDebug\\out\\classes.dex
-base.10=C\:\\Users\\hocke\\Documents\\Coding Projects\\VS Code Projects\\strippedSoshi\\build\\app\\intermediates\\dex\\debug\\mergeLibDexDebug\\out\\classes_7.dex
-path.10=classes_7.dex
 path.9=classes_6.dex
 path.8=classes2.dex
 path.7=classes_4.dex

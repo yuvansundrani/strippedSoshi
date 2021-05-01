@@ -41,7 +41,7 @@ class _FriendScreenState extends State<FriendScreen> {
       DatabaseService databaseService) async {
     List<dynamic> friendsListUIDs;
     friendsListUIDs = await databaseService.getFriends();
-    List<Friend> formattedFriendsList = new List<Friend>();
+    List<Friend> formattedFriendsList = [];
     // store full name of current user in list
     String fullName, username;
     for (String otherUID in friendsListUIDs) {
@@ -57,7 +57,7 @@ class _FriendScreenState extends State<FriendScreen> {
     // ];
     return formattedFriendsList;
   }
-
+  
   void _launchURL(String url) async =>
       await canLaunch(url) ? await launch(url) : throw 'Could not launch $url';
 
